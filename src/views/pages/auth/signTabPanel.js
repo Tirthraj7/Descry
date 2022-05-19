@@ -1,0 +1,390 @@
+import React, { Component } from 'react'
+
+import {
+  TabContent,
+  TabPane,
+  Nav,
+  NavItem,
+  NavLink,
+  Row,
+  Col,
+  Form,
+  FormGroup,
+  Input
+} from 'reactstrap'
+
+import SimpleReactValidator from 'simple-react-validator'
+
+import classnames from 'classnames'
+import { ComonIcons } from '../../../content/commonIcons'
+import { history } from '../../../history'
+import { Link } from 'react-router-dom'
+import {
+  loginApi,
+  signUp,
+} from '../../../redux/actions/api/apiAction'
+
+import { ClipLoader } from 'react-spinners'
+import { connect } from 'react-redux'
+
+class SignTab extends Component {
+  //  const [activeTab, setActiveTab] = useState("1");
+
+  constructor (props) {
+    super(props)
+    this.validator = new SimpleReactValidator({ autoForceUpdate: this })
+  }
+  toggle = tab => {
+    if (this.state.activeTab !== tab)
+      this.setState({
+        activeTab: tab,
+        email: '',
+        pass: '',
+        loading: false
+      })
+  }
+  signIn = async () => {
+    if (
+      this.validator.fieldValid('email') &&
+      this.validator.fieldValid('password')
+    ) {
+      await this.setState({ loading: true })
+
+      const data = {
+        email: this.state.email,
+        password: this.state.pass
+      }
+      await this.props.loginApi(data)
+      await this.setState({ loading: false })
+    } else {
+      this.validator.showMessages()
+    }
+  }
+  signUp = async () => {
+    if (
+      this.validator.fieldValid('email') &&
+      this.validator.fieldValid('password') &&
+      this.validator.fieldValid('phone') &&
+      this.validator.fieldValid('fname') &&
+      this.validator.fieldValid('lname')
+    ) {
+      await this.setState({ loading: true })
+
+      const data = {
+        email: this.state.email,
+        password: this.state.pass,
+        phone: this.state.phone,
+        firstName: this.state.fname,
+        lastName: this.state.lname,
+        fullName: this.state.fname + ' ' + this.state.lname
+      }
+      await this.props.signUp(data)
+      await this.setState({ loading: false })
+    } else {
+      this.validator.showMessages()
+    }
+  }
+
+  state = {
+    email: '',
+    pass: '',
+    activeTab: '1',
+    fname: '',
+    lname: '',
+    phone: '',
+    loading: false
+  }
+
+  setData = (name, val) => {
+    this.setState({ [name]: val })
+  }
+
+  render () {
+    return this.state.loading ? (
+      <ClipLoader />
+    ) : (
+      <div>
+        <Nav tabs>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '1' })}
+              onClick={() => {
+                this.toggle('1')
+              }}
+            >
+              Sign In
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '2' })}
+              onClick={() => {
+                this.toggle('2')
+              }}
+            >
+              Sign up
+            </NavLink>
+          </NavItem>
+        </Nav>
+        <TabContent activeTab={this.state.activeTab}>
+          <TabPane tabId='1'>
+            <Row>
+              <Col sm='12'>
+                <div className>
+                  <Form className='pt-3 mt-3'>
+                    <FormGroup className='position-relative'>
+                      <Input
+                        type='email'
+                        name='email'
+                        id='exampleEmail'
+                        placeholder='Email Id'
+                        className='with-icons'
+                        value={this.state.email}
+                        onChange={e => this.setData('email', e.target.value)}
+                        onBlur={() => this.validator.showMessageFor('email')}
+                      />
+                      <span className='absolute-icon'>{ComonIcons.mailer}</span>
+                      {this.state.activeTab === '1'
+                        ? this.validator.message(
+                            'email',
+                            this.state.email,
+                            'required|email',
+                            { className: 'text-danger' }
+                          )
+                        : null}
+                    </FormGroup>
+                    <FormGroup className='position-relative'>
+                      <Input
+                        type='password'
+                        name='password'
+                        id='password'
+                        placeholder='Password'
+                        className='with-icons'
+                        value={this.state.pass}
+                        onChange={e => this.setData('pass', e.target.value)}
+                        onBlur={() => this.validator.showMessageFor('password')}
+                      />
+                      <span className='absolute-icon'>{ComonIcons.lock}</span>
+                      {this.state.activeTab === '1'
+                        ? this.validator.message(
+                            'password',
+                            this.state.pass,
+                            'required|min:7',
+                            { className: 'text-danger' }
+                          )
+                        : null}
+                    </FormGroup>
+
+                    <div className='forget-password pt-3'>
+                      <Link
+                        className='red-link link'
+                        onClick={() => {
+                          history.push('/forgot-password')
+                        }}
+                      >
+                        Forgot Password
+                      </Link>
+                    </div>
+
+                    <div className='pt-3'>
+                      <button
+                        type='button'
+                        className='btn btn-custom-primary w-100'
+                        onClick={() => this.signIn()}
+                      >
+                        Sign in
+                      </button>
+                    </div>
+                    <div className='border-block or-block-wrapper text-center'>
+                      <h4 className='or-block f-bold '>OR</h4>
+                    </div>
+                    <div className='pt-0'>
+                      <button
+                        className='btn btn-custom-google w-100'
+                        type='button'
+                      >
+                        <span className='h3'>
+                          <i class='fa fa-google'></i>{' '}
+                        </span>
+                        <span> Sign in with google</span>
+                      </button>
+                    </div>
+                  </Form>
+                </div>{' '}
+              </Col>
+            </Row>
+          </TabPane>
+          <TabPane tabId='2'>
+            <Row>
+              <Col sm='12'>
+                <div className>
+                  <Form className='pt-3 mt-3 row'>
+                    <Col lg={6}>
+                      <FormGroup className='position-relative'>
+                        <Input
+                          type='text'
+                          name='first-name'
+                          id='first-name'
+                          placeholder='First Name'
+                          className='with-icons'
+                          value={this.state.fname}
+                          onChange={e => this.setData('fname', e.target.value)}
+                          onBlur={() => this.validator.showMessageFor('fname')}
+                        />
+                        <span className='absolute-icon'>{ComonIcons.user}</span>
+                        {this.state.activeTab === '2'
+                          ? this.validator.message(
+                              'fname',
+                              this.state.fname,
+                              'required',
+                              { className: 'text-danger' }
+                            )
+                          : null}
+                      </FormGroup>
+                    </Col>
+                    <Col lg={6}>
+                      <FormGroup className='position-relative'>
+                        <Input
+                          type='text'
+                          name='last-name'
+                          id='last-name'
+                          placeholder='Last Name'
+                          className='with-icons'
+                          value={this.state.lname}
+                          onChange={e => this.setData('lname', e.target.value)}
+                          onBlur={() => this.validator.showMessageFor('lname')}
+                        />
+                        <span className='absolute-icon'>{ComonIcons.user}</span>
+                        {this.state.activeTab === '2'
+                          ? this.validator.message(
+                              'lname',
+                              this.state.lname,
+                              'required',
+                              { className: 'text-danger' }
+                            )
+                          : null}
+                      </FormGroup>
+                    </Col>
+                    <Col lg={12}>
+                      <FormGroup className='position-relative'>
+                        <Input
+                          type='email'
+                          name='email'
+                          placeholder='Email Id'
+                          className='with-icons'
+                          value={this.state.email}
+                          onChange={e => this.setData('email', e.target.value)}
+                          onBlur={() => this.validator.showMessageFor('email')}
+                        />
+                        <span className='absolute-icon'>
+                          {ComonIcons.mailer}
+                        </span>
+                        {this.state.activeTab === '2'
+                          ? this.validator.message(
+                              'email',
+                              this.state.email,
+                              'required|email',
+                              { className: 'text-danger' }
+                            )
+                          : null}
+                      </FormGroup>
+                    </Col>
+                    <Col lg={12}>
+                      <FormGroup className='position-relative'>
+                        <Input
+                          type='number'
+                          name='telephone'
+                          id='telephone'
+                          placeholder='Telephone number'
+                          className='with-icons'
+                          value={this.state.phone}
+                          onChange={e => this.setData('phone', e.target.value)}
+                          onBlur={() => this.validator.showMessageFor('phone')}
+                        />
+                        <span className='absolute-icon'>{ComonIcons.lock}</span>
+                        {this.state.activeTab === '2'
+                          ? this.validator.message(
+                              'phone',
+                              this.state.phone,
+                              'required|phone',
+                              { className: 'text-danger' }
+                            )
+                          : null}
+                      </FormGroup>
+                    </Col>
+                    <Col lg={12}>
+                      <FormGroup className='position-relative'>
+                        <Input
+                          type='password'
+                          name='password'
+                          id='telephone'
+                          placeholder='6+ Characters Password'
+                          className='with-icons'
+                          value={this.state.pass}
+                          onChange={e => this.setData('pass', e.target.value)}
+                          onBlur={() =>
+                            this.validator.showMessageFor('password')
+                          }
+                        />
+                        <span className='absolute-icon'>{ComonIcons.lock}</span>
+                        {this.state.activeTab === '2'
+                          ? this.validator.message(
+                              'password',
+                              this.state.pass,
+                              'required|min:7',
+                              { className: 'text-danger' }
+                            )
+                          : null}
+                      </FormGroup>
+                    </Col>
+                    <Col lg={12}>
+                      <div className='forget-password pt-3'>
+                        <label class='custom-container '>
+                          I accept to receive{' '}
+                          <span className='f-bold'> emails from descry.</span>
+                          <input type='checkbox' />
+                          <span class='checkmark'></span>
+                        </label>
+                      </div>
+                    </Col>
+                    <Col lg={12}>
+                      <div className='pt-3'>
+                        <button
+                          type='button'
+                          onClick={() => this.signUp()}
+                          className='btn btn-custom-primary w-100'
+                        >
+                          Create account
+                        </button>
+                      </div>
+                    </Col>
+                    <Col lg={12}>
+                      <div className='border-block or-block-wrapper text-center'>
+                        <h4 className='or-block f-bold '>OR</h4>
+                      </div>
+                    </Col>
+                    <Col lg={12}>
+                      <div className='pt-0'>
+                        <button className='btn btn-custom-google w-100'>
+                          <span className='h3'>
+                            <i class='fa fa-google'></i>{' '}
+                          </span>
+                          <span> sign up with google</span>
+                        </button>
+                      </div>
+                    </Col>
+                  </Form>
+                </div>{' '}
+              </Col>
+            </Row>
+          </TabPane>
+        </TabContent>
+      </div>
+    )
+  }
+}
+
+export default connect(null, {
+  loginApi,
+  signUp,
+})(SignTab)

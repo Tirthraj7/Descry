@@ -1,0 +1,11 @@
+export const SET_USER_REFRESHTOKEN = "SET_USER_REFRESHTOKEN";
+export const SET_USER_TOKEN = "SET_USER_TOKEN";
+
+/**
+ * Login
+ */
+export const SET_LOGIN_USER = 'SET_LOGIN_USER'
+export const SET_LOGIN_FLAG = 'SET_LOGIN_FLAG'
+export const SET_ADMIN_STATUS = 'SET_ADMIN_STATUS'
+export const UPDATE_FIRST = 'UPDATE_FIRST'
+export const GET_INDIS = 'GET_INDIS'

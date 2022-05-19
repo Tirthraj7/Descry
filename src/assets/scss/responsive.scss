@@ -1,0 +1,561 @@
+/** @format */
+
+@media screen and (max-width: 1550px) {
+  .big-65 {
+    font-size: 38px;
+    line-height: 48px;
+  }
+
+  .big-50 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .sub-scription-main-block {
+    .slice-wrapper {
+      padding: 10px;
+      margin: 15px 0;
+
+      .subscription-inner-wrapper {
+        margin: 15px 0;
+
+        .package-element {
+          padding: 10px;
+
+          .btn {
+            margin-top: 30px;
+            padding: 10px;
+            white-space: pre;
+          }
+
+          .services-list-wrapper {
+            .inner-wrapper {
+              .service .block-1 {
+                width: 25px;
+                margin-right: 10px;
+              }
+            }
+          }
+
+          .package-title {
+            .block-1 {
+              margin-right: 15px;
+              width: 35px;
+
+              svg {
+                width: 25px;
+                height: 25px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .bring-main-wrapper {
+    .slice-wrapper {
+      padding: 50px 15px;
+
+      .bring-block {
+        .img-block {
+          img {
+            width: 65px;
+            height: 65px;
+          }
+        }
+
+        label {
+          padding: 5px;
+        }
+      }
+    }
+  }
+
+  .payment-wrapper {
+    padding: 50px 15px;
+  }
+}
+
+@media screen and (max-width: 1920px) and (min-width: 991px) and (max-height: 780px) {
+  :root {
+    --des-h1: 26px;
+    --des-h2: 20px;
+    --des-h3: 18px;
+    --des-h4: 16px;
+    --des-h5: 14px;
+    --des-h6: 12px;
+  }
+
+  .comon-full-layout {
+    .comon-block-1 {
+      padding: 30px 25px;
+
+      .image-block {
+        padding: 15px 0px;
+      }
+    }
+
+    .comon-block-2 {
+      .common-block-wrapper {
+        width: 440px;
+        padding: 25px;
+        box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    .or-block-wrapper {
+      margin: 20px 0;
+    }
+  }
+
+  .form-control,
+  .css-yk16xz-control,
+  .css-1pahdxg-control {
+    height: 45px;
+  }
+  .comon-full-layout .comon-block-1 .image-block {
+    padding: 50px 40px;
+  }
+}
+
+@media screen and (max-width: 1399px) {
+  :root {
+    --des-h1: 26px;
+    --des-h2: 20px;
+    --des-h3: 18px;
+    --des-h4: 14px;
+    --des-h5: 13px;
+    --des-h6: 12px;
+  }
+  .form-group {
+    margin-bottom: 10px;
+  }
+  .form-control,
+  .css-yk16xz-control,
+  .css-1pahdxg-control {
+    height: 35px;
+  }
+  .bring-main-wrapper {
+    .slice-wrapper {
+      .bring-block {
+        .content {
+          min-height: 200px;
+        }
+      }
+    }
+  }
+  .btn-custom-primary {
+    border: 2px solid var(--des-secondary);
+    font-weight: bold;
+    padding: 8px;
+  }
+  .btn-custom-google {
+    padding: 8px;
+  }
+  .main-logo {
+    width: 110px;
+  }
+  .custom-navbar
+    .common-navbar-block
+    .list-wrapper
+    .list-element.user-drp
+    .user {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    display: block;
+  }
+  .sidebar .sidebar-header .logo-block {
+    width: 110px;
+    height: 25px;
+  }
+  .custom-navbar {
+    height: 55px;
+  }
+
+  .sidebar .sidebar-header {
+    height: 55px;
+    position: relative;
+    padding: 9px 35px !important;
+  }
+  .burger-menu svg {
+    width: 25px;
+  }
+  .sidebar .sidebar-body .sidebar-link-wrappper .path-link .sidebar-link {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .admin-layout-wrapper {
+    margin-top: 55px;
+  }
+  .sidebar
+    .sidebar-body
+    .sidebar-link-wrappper
+    .path-inner-link
+    .sidebar-inner-link {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .sidebar .sidebar-body {
+    height: calc(100% - 55px);
+    background-color: var(--des-primary);
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .login-sign-up-section {
+    .login-custom-container {
+      .overlay-container {
+        left: 41.666667%;
+        flex: 0 0 58.333333%;
+        width: 58.333333%;
+      }
+
+      .sign-up-container {
+        width: 41.666667%;
+      }
+
+      .sign-in-container {
+        width: 41.666667%;
+      }
+
+      &.right-panel-active {
+        .overlay-container {
+          transform: translateX(-100%);
+          left: 58.333333%;
+        }
+
+        .sign-in-container {
+          transform: translateX(100%);
+          left: auto;
+          right: 41.666667%;
+        }
+      }
+    }
+  }
+  .sub-scription-main-block {
+    .slice-wrapper {
+      .subscription-inner-wrapper {
+        .package-element {
+          .price-block {
+            margin: 10px 0px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  :root {
+    --des-h1: 26px;
+    --des-h2: 20px;
+    --des-h3: 16px;
+    --des-h4: 14px;
+    --des-h5: 12px;
+    --des-h6: 12px;
+  }
+
+  .comon-full-layout {
+    .comon-block-2 {
+      margin: 15px 0px;
+
+      .common-block-wrapper {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        width: 440px;
+        padding: 15px;
+
+        .nav-tabs {
+          .nav-item {
+            .nav-link {
+              &.active {
+                padding-bottom: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .comon-block-1 {
+      padding: 25px 15px;
+
+      .image-block {
+        padding: 50px 0px;
+        text-align: center;
+
+        img {
+          max-height: 250px;
+        }
+      }
+    }
+
+    .or-block-wrapper {
+      margin: 15px 0;
+    }
+  }
+
+  .form-control,
+  .css-yk16xz-control,
+  .css-1pahdxg-control {
+    height: 45px;
+  }
+
+  /*admin-layout css*/
+
+  .admin-panel {
+    .admin-layout-wrapper {
+      margin-left: 0px;
+      width: 100%;
+      transition: 0.3s ease-in-out;
+
+      .admin-layout-body {
+        // height: calc(100vh - 82px);
+        padding: 15px;
+        background: var(--des-white);
+        height: 100%;
+        min-height: calc(100vh - 82px);
+      }
+    }
+
+    .custom-navbar {
+      padding: 0px 15px;
+      margin-left: 0px;
+      width: 100%;
+    }
+
+    .sidebar {
+      position: fixed;
+      margin-left: -300px;
+
+      .sidebar-header {
+        .close-sidebar {
+          display: block;
+
+          svg {
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+
+      .sidebar-body {
+        .sidebar-link-wrappper {
+          .path-link {
+            .sidebar-link {
+              padding-left: 15px;
+              padding-right: 15px;
+              padding-top: 15px;
+              padding-bottom: 15px;
+            }
+          }
+
+          .path-inner-link {
+            .sidebar-inner-link {
+              padding-left: 15px;
+              padding-right: 15px;
+              padding-top: 15px;
+              padding-bottom: 15px;
+            }
+          }
+        }
+      }
+
+      .sidebar-inner-list-wrapper {
+      }
+    }
+
+    &.active {
+      .admin-layout-wrapper {
+        margin-left: 0px;
+        width: 100%;
+        transition: 0.3s ease-in-out;
+      }
+
+      .sidebar {
+        position: fixed;
+        margin-left: 0px;
+
+        .sidebar-body {
+          overflow-y: scroll;
+        }
+      }
+    }
+  }
+
+  .login-sign-up-section .login-custom-container .sign-in-container {
+    width: 100%;
+    position: relative;
+  }
+
+  .login-sign-up-section .overlay-left {
+    transform: none;
+    /* display: contents; */
+    position: relative;
+  }
+
+  .login-sign-up-section .login-custom-container .overlay-container {
+    left: 0;
+    flex: none;
+    width: 100%;
+    position: relative;
+  }
+
+  .login-sign-up-section
+    .login-custom-container.right-panel-active
+    .sign-in-container {
+    transform: translateX(0%);
+    left: 0;
+    right: auto;
+  }
+
+  .login-sign-up-section
+    .login-custom-container.right-panel-active
+    .overlay-container {
+    transform: translateX(0%);
+    left: auto;
+    right: 0;
+  }
+
+  .login-sign-up-section .overlay-panel {
+    padding: 0 0px;
+    display: block;
+  }
+
+  .login-sign-up-section
+    .login-custom-container.right-panel-active
+    .overlay-right {
+    transform: translateX(0%);
+  }
+
+  .overlay-panel {
+    .comon-block-2 {
+      margin: 0;
+      padding: 15px 0;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .main-logo {
+    width: 100px;
+  }
+
+  .comon-full-layout {
+    height: 100%;
+
+    .comon-block-1 {
+      padding: 15px 15px;
+
+      .image-block {
+        padding: 15px 0px;
+        text-align: center;
+
+        img {
+          max-width: 150px;
+        }
+      }
+    }
+
+    .comon-block-2 {
+      .common-block-wrapper {
+        width: 100%;
+        margin: 0 15px;
+      }
+    }
+  }
+
+  .form-control,
+  .css-yk16xz-control,
+  .css-1pahdxg-control {
+    height: 40px;
+  }
+
+  .bring-main-wrapper {
+    .slice-wrapper {
+      .bring-block {
+        .content {
+          min-height: 100px;
+        }
+      }
+    }
+  }
+
+  .social-media-wrapper {
+    padding: 15px;
+
+    .notes {
+      padding: 15px;
+      margin-top: 15px;
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  h1,
+  .h1 {
+    line-height: 32px;
+  }
+
+  .edit-image-portion {
+    display: block;
+    flex-direction: column;
+    margin: 30px 0;
+
+    .block-1 {
+      margin-right: 0;
+
+      .drop-input-block {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+      }
+    }
+
+    .or-extra-block {
+      width: 100%;
+      height: 1px;
+      margin: 25px 0;
+      background-color: var(--des-primary);
+
+      .or {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--des-white);
+        padding: 0px 15px;
+        margin-top: 4px;
+      }
+    }
+  }
+
+  .payment-wrapper {
+    .payment-type {
+      text-align: center;
+
+      .payment-block {
+        margin-right: 0;
+      }
+    }
+  }
+
+  /*brand page css started*/
+  .white-label {
+    .color-text-blocks {
+      .title-block {
+        width: 175px;
+      }
+
+      .content-block {
+        width: calc(100% - 175px);
+      }
+
+      .logo-view {
+        padding: 10px 15px;
+      }
+    }
+  }
+}
